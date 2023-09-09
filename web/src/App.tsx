@@ -1,13 +1,20 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Header from "./components/layoutWrapper/Header";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {SignIn} from './pages/signIn';
+import Header from './components/layoutWrapper/Header';
+import { Dashboard } from './pages/dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-    </div>
+    <>
+    <Header/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/signin" element={<SignIn />} />
+      </Routes>
+    </Router>
+    </>
   );
 }
 
