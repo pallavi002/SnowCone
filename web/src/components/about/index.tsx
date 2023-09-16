@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function About() {
   return (
     <>
-      <div className="container absolute relative flex w-full flex-col p-10">
+      <div className=" absolute relative flex w-full flex-col p-10 bg-white z-50">
         <h1 className="text-4xl font-bold font-cursive mb-7  z-50 -mt-12 ml-64" style={{color:"rgba(147,189,203,255)"}}>About page</h1>
         <div>
           

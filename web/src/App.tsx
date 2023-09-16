@@ -10,8 +10,8 @@ import Footer from './components/footer';
 function App() {
   return (
     <>
-    <Header/>
     <Router>
+    <Header/>
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/signin" element={<SignIn />} />
