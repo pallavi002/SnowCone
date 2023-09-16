@@ -1,10 +1,9 @@
-
+import ProductsDisplay from "../../components/products";
 
 export function Products() {
   return (
     <>
-
-        <h1>Our Products</h1>
+        <ProductsDisplay/>
     </>
   );
 }
