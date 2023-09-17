@@ -1,6 +1,6 @@
 import { register, login } from "../controllers/authController";
 import { getProfile } from "../controllers/userController";
-import { addProduct, getProducts, findProduct, updateProduct, deleteProduct } from "../controllers/productController";
+import { addProduct, getProducts, findProduct, updateProduct, deleteProduct, getRecipies, addRecipie } from "../controllers/productController";
 
 import authorize from "../controllers/middleware";
 
@@ -15,4 +15,9 @@ export default function initRoutes(app: any) {
     app.get("/product/:id", findProduct);
     app.put("/updateproduct/:id", updateProduct);
     app.delete("/deleteproduct/:id", deleteProduct);
+
+    app.get("/recipies", getRecipies);
+    app.post("/addrecipie", addRecipie);
+
+
 }

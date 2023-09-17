@@ -1,6 +1,10 @@
 import { Request, Response } from 'express';
 import Product from "../models/Product";
+import Recipie from "../models/Recipie";
+
 import { IProduct } from "../types/product";
+import { IRecipie } from "../types/recipie";
+
 
 export const getProducts = async (req: Request, res: Response) => {
   const { page, perPage } = req.query;
@@ -133,6 +137,49 @@ export const deleteProduct = async (req: Request, res: Response) => {
           code: 400,
           success: false,
           message: "Error Deleting Product!",
+          data: err,
+      });
+  }
+}
+
+
+export const getRecipies = async (req: Request, res: Response) => {
+  try {
+    const result = await Recipie.find();
+
+    return res.status(201).json({
+      code: 201,
+      success: true,
+      message: "Recipies found!",
+      data: result,
+    });
+  } catch (err) {
+    return res.status(400).json({
+      code: 400,
+      success: false,
+      message: "Error Fetching Recipies!",
+      data: err,
+    });
+  }
+};
+
+export const addRecipie = async (req: Request, res: Response) => {    
+  try {
+      const {recipieName, recipieDirections, recipieIngredients, cookingTime, recipieAuthor, recipieImage} :IRecipie = req.body;
+      const recipieData = new Recipie({ recipieName, recipieDirections, recipieIngredients, cookingTime, recipieAuthor, recipieImage });
+      const result = await recipieData.save();
+
+      return res.status(201).json({
+          code: 201,
+          success: true,
+          message: "Recipie Added!",
+          data: result,
+      });
+  } catch(err) {
+      return res.status(400).json({
+          code: 400,
+          success: false,
+          message: "Error Adding Recipie!",
           data: err,
       });
   }
