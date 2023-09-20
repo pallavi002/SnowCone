@@ -50,7 +50,7 @@ export function Register({ setRegisterClicked }: SignInComponentProps) {
   return (
     <>
       {!signInClicked ? (
-        <div className="flex justify-center items-center m-32">
+        <div className="flex justify-center items-center m-32 my-56">
           <div className="w-full max-w-xs">
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
               <div className="mb-4">
@@ -106,9 +106,10 @@ export function Register({ setRegisterClicked }: SignInComponentProps) {
 
               <div className="flex items-center justify-between">
                 <button
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className=" hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   type="button"
                   onClick={onSubmitRegister}
+                  style={{ backgroundColor: "rgba(147,189,203,255)" }}
                 >
                   Register
                 </button>
@@ -116,12 +117,13 @@ export function Register({ setRegisterClicked }: SignInComponentProps) {
             </form>
             <div className="row">
               <button
-                className="block w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="block w-full hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
                 onClick={() => {
                   setSignInClicked(true);
                   setRegisterClicked(false);
                 }}
+                style={{ backgroundColor: "rgba(147,189,203,255)" }}
               >
                 Already Registered? Sign In
               </button>

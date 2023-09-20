@@ -20,9 +20,14 @@ export function Dashboard() {
   const [messages, setMessages] = useState<string[]>([]); // Specify the type as an array of strings
   const [isChatOpen, setIsChatOpen] = useState(false);
 
+
   useEffect(() => {
     // Listen for messages from the server
+    socket.on('connect', ()=>console.log(socket.id))
+
+ 
     socket.on('chat message', (message: string) => {
+      console.log("->", message);
       
       setMessages((prevMessages) => [...prevMessages, message]); // Use the functional form of setState to update the state correctly
     });

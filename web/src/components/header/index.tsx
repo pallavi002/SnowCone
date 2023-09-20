@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom"; // Import the useLocation hook
+import { useLocation, useNavigate } from "react-router-dom"; // Import the useLocation hook
 
 const navigation = [
   { name: "Products", href: "/products" },
   { name: "Features", href: "#" },
   { name: "Marketplace", href: "#" },
   { name: "Stories", href: "/stories" },
+  { name: "Log Out", href: "/logout" },
+
 ];
 
 export default function Header() {
@@ -15,8 +17,19 @@ export default function Header() {
     color: "white",
   });
 
+  
+
   // Get the current location pathname using useLocation
   const location = useLocation();
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/signin');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     // Function to update the header style based on scroll position and path

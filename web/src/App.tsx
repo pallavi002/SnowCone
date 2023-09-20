@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {SignIn} from './pages/signIn';
 import { Dashboard } from './pages/dashboard';
@@ -8,6 +8,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 
 function App() {
+
   return (
     <>
     <Router>
